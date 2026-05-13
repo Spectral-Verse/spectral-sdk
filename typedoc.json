@@ -1,0 +1,8 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs/api",
+  "plugin": [],
+  "excludeExternals": true,
+  "includeVersion": true,
+  "readme": "README.md"
+}
