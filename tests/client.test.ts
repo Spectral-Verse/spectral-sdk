@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { SpectraClient, NetworkNames } from '../src';
+import { SpectralClient, NetworkNames } from '../src';
 
-describe('SpectraClient', () => {
+describe('SpectralClient', () => {
   const config = {
     rpcUrl: 'https://soroban-testnet.stellar.org',
     networkPassphrase: NetworkNames.TESTNET,
@@ -9,7 +9,7 @@ describe('SpectraClient', () => {
   };
 
   it('should initialize with correct configuration', () => {
-    const client = new SpectraClient(config);
+    const client = new SpectralClient(config);
     expect(client).toBeDefined();
   });
 });

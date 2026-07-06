@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { MockSpectraClient, mockVault, mockPosition } from '../src';
+import { MockSpectralClient, mockVault, mockPosition } from '../src';
 
-describe('MockSpectraClient', () => {
-  const client = new MockSpectraClient();
+describe('MockSpectralClient', () => {
+  const client = new MockSpectralClient();
 
   it('should return mock vault data', async () => {
     const vault = await client.getVault(mockVault.id);

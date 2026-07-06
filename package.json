@@ -1,7 +1,7 @@
 {
-  "name": "@spectra/sdk",
+  "name": "@spectral/sdk",
   "version": "0.1.0",
-  "description": "TypeScript SDK for integrating with Spectra Contracts on Stellar Soroban.",
+  "description": "TypeScript SDK for integrating with Spectral Verse Contracts on Stellar Soroban.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -25,9 +25,9 @@
     "sdk",
     "vault",
     "asset-basket",
-    "spectra"
+    "spectral"
   ],
-  "author": "Spectra Team",
+  "author": "Spectral Team",
   "license": "MIT",
   "dependencies": {
     "@stellar/stellar-sdk": "^12.0.0",

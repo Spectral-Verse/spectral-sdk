@@ -8,7 +8,7 @@ Spectral SDK is a comprehensive TypeScript library designed for seamless integra
 - **Advanced Transaction Builders**: Streamlined utilities for preparing complex vault operations including deposits, withdrawals, and rebalances.
 - **Robust Data Parsers**: Reliable conversion of raw contract values and ledger events into structured, developer-friendly models.
 - **Integrated Validation**: Built-in logic for verifying addresses, asset allocations, and operational parameters before execution.
-- **Developer Experience**: Includes a `MockSpectraClient` for rapid, deterministic testing and local development workflows.
+- **Developer Experience**: Includes a `MockSpectralClient` for rapid, deterministic testing and local development workflows.
 
 ## Installation
 
@@ -19,9 +19,9 @@ npm install @spectra/sdk
 ## Quick Start
 
 ```typescript
-import { SpectraClient, NetworkNames } from '@spectra/sdk';
+import { SpectralClient, NetworkNames } from '@spectra/sdk';
 
-const client = new SpectraClient({
+const client = new SpectralClient({
   rpcUrl: 'https://soroban-testnet.stellar.org',
   networkPassphrase: NetworkNames.TESTNET,
   contractId: 'CA...',

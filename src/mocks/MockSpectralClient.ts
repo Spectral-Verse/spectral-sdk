@@ -1,10 +1,10 @@
-import { SpectraClient, SpectraClientConfig } from '../client/SpectraClient';
+import { SpectralClient, SpectralClientConfig } from '../client/SpectralClient';
 import { Vault } from '../models/vault';
 import { UserPosition } from '../models/position';
 import { mockVault, mockPosition } from './fixtures';
 
-export class MockSpectraClient extends SpectraClient {
-  constructor(config: Partial<SpectraClientConfig> = {}) {
+export class MockSpectralClient extends SpectralClient {
+  constructor(config: Partial<SpectralClientConfig> = {}) {
     super({
       rpcUrl: 'http://localhost:8000',
       networkPassphrase: 'Test SDF Network ; September 2015',

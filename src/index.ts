@@ -34,5 +34,5 @@ export * from './utils/result';
 export * from './utils/time';
 
 // Mocks
-export * from './mocks/MockSpectraClient';
+export * from './mocks/MockSpectralClient';
 export * from './mocks/fixtures';

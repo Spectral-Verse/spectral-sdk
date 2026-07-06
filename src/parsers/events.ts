@@ -1,20 +1,20 @@
 import { xdr, scValToNative } from '@stellar/stellar-sdk';
-import { SpectraError } from '../errors/SpectraError';
-import { SpectraErrorCode } from '../errors/errorCodes';
+import { SpectralError } from '../errors/SpectralError';
+import { SpectralErrorCode } from '../errors/errorCodes';
 
-export interface SpectraEvent {
+export interface SpectralEvent {
   type: string;
   vaultId: string;
   data: any;
 }
 
-export function parseSpectraEvent(event: any): SpectraEvent {
+export function parseSpectralEvent(event: any): SpectralEvent {
   try {
     const topics = event.topic.map((t: string) => scValToNative(xdr.ScVal.fromXDR(t, 'base64')));
     const data = scValToNative(xdr.ScVal.fromXDR(event.value, 'base64'));
 
     if (topics[0] !== 'vault') {
-      throw new Error('Not a Spectra vault event');
+      throw new Error('Not a Spectral vault event');
     }
 
     return {
@@ -23,8 +23,8 @@ export function parseSpectraEvent(event: any): SpectraEvent {
       data,
     };
   } catch (err) {
-    throw new SpectraError(
-      SpectraErrorCode.UNKNOWN_CONTRACT_EVENT,
+    throw new SpectralError(
+      SpectralErrorCode.UNKNOWN_CONTRACT_EVENT,
       'Failed to parse contract event',
       err
     );

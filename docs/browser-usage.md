@@ -11,9 +11,9 @@ The SDK is published as an ESM module. If you are using a bundler like Vite, Web
 Since the SDK does not handle private keys, you must integrate with a browser wallet (e.g., Freighter, Albedo) to sign transactions.
 
 ```typescript
-import { SpectraClient } from '@spectra/sdk';
+import { SpectralClient } from '@spectra/sdk';
 
-const client = new SpectraClient({ ... });
+const client = new SpectralClient({ ... });
 
 // 1. Build the transaction
 const tx = await client.buildDepositTransaction(...);
@@ -28,4 +28,4 @@ const result = await client.submitTransaction(signedXdr);
 ## Considerations
 
 - Ensure your RPC endpoint is accessible via CORS from the browser.
-- Use the `MockSpectraClient` for frontend development without a live network.
+- Use the `MockSpectralClient` for frontend development without a live network.

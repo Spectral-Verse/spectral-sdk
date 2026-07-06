@@ -18,7 +18,7 @@ Located in `tests/`, these tests cover:
 
 ## Mock Client Tests
 
-The `MockSpectraClient` allows testing application logic without a live RPC connection. It uses fixtures defined in `src/mocks/fixtures.ts`.
+The `MockSpectralClient` allows testing application logic without a live RPC connection. It uses fixtures defined in `src/mocks/fixtures.ts`.
 
 ## Integration Testing
 
@@ -29,4 +29,4 @@ To run integration tests against a live network:
 
 ## Adding Fixtures
 
-When adding new contract functionality, ensure you update `fixtures.ts` and `MockSpectraClient.ts` to reflect the new state and methods.
+When adding new contract functionality, ensure you update `fixtures.ts` and `MockSpectralClient.ts` to reflect the new state and methods.

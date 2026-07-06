@@ -7,33 +7,34 @@ import { AssetAllocation } from '../models/allocation';
 import { validateAllocations } from '../validation/allocation';
 import { validateVaultId } from '../validation/vault';
 import { fromStroops } from '../utils/amount';
+import { SpectralError } from '../errors/SpectralError';
 
 /**
- * Configuration options for initializing the Spectra SDK client.
+ * Configuration options for initializing the Spectral SDK client.
  */
-export interface SpectraClientConfig {
+export interface SpectralClientConfig {
   /** The URL of the Soroban RPC server */
   rpcUrl: string;
   /** The network passphrase for the target Stellar network */
   networkPassphrase: string;
-  /** The contract ID of the Spectra vault factory or main contract */
+  /** The contract ID of the Spectral Verse vault factory or main contract */
   contractId: string;
 }
 
 /**
- * The primary entry point for interacting with Spectra vaults.
+ * The primary entry point for interacting with Spectral Verse vaults.
  * Provides high-level methods for querying state and building transactions.
  */
-export class SpectraClient {
+export class SpectralClient {
   private provider: RpcProvider;
   private contract: ContractClient;
   private txBuilder: TransactionBuilder;
 
   /**
-   * Creates a new instance of the SpectraClient.
+   * Creates a new instance of the SpectralClient.
    * @param config - The client configuration.
    */
-  constructor(config: SpectraClientConfig) {
+  constructor(config: SpectralClientConfig) {
     this.provider = new RpcProvider(config.rpcUrl, config.networkPassphrase);
     this.contract = new ContractClient(config.contractId, this.provider);
     this.txBuilder = new TransactionBuilder(this.provider);
@@ -44,7 +45,7 @@ export class SpectraClient {
    * 
    * @param vaultId - The 32-byte unique identifier of the vault.
    * @returns A promise resolving to the complete Vault state.
-   * @throws {SpectraError} If the vault is not found or ID is invalid.
+   * @throws {SpectralError} If the vault is not found or ID is invalid.
    */
   public async getVault(vaultId: string): Promise<Vault> {
     validateVaultId(vaultId);
@@ -99,7 +100,7 @@ export class SpectraClient {
    * @param assetAddress - The address of the asset being deposited.
    * @param amount - The amount to deposit (in stroops/base units).
    * @returns A promise resolving to the prepared Stellar Transaction object.
-   * @throws {SpectraError} If validation fails or RPC connection issues occur.
+   * @throws {SpectralError} If validation fails or RPC connection issues occur.
    */
   public async buildDepositTransaction(
     vaultId: string,
