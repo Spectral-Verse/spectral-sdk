@@ -1,10 +1,10 @@
 # SDK Architecture
 
-Spectra SDK is structured into several layers to provide both high-level convenience and low-level control.
+Spectral SDK is structured into several layers to provide both high-level convenience and low-level control.
 
 ## Layers
 
-1.  **SpectraClient**: The primary entry point for developers. It provides typed methods for common workflows like getting vault data, user positions, and building transactions.
+1.  **SpectralClient**: The primary entry point for developers. It provides typed methods for common workflows like getting vault data, user positions, and building transactions.
 2.  **ContractClient**: A lower-level abstraction that handles direct Soroban contract invocations, including simulations and operation preparation.
 3.  **RpcProvider**: Wraps the Stellar Soroban RPC interactions, handling simulation, transaction submission, and status polling.
 4.  **TransactionBuilder**: Logic for assembling Stellar transactions from contract operations, including fee and sequence number handling.

@@ -1,10 +1,10 @@
-# Spectra SDK
+# Spectral SDK
 
-Spectra SDK is a comprehensive TypeScript library designed for seamless integration with Spectra Contracts—a suite of Soroban smart contracts for transparent on-chain asset basket vaults on the Stellar network.
+Spectral SDK is a comprehensive TypeScript library designed for seamless integration with Spectral Verse Contracts—a suite of Soroban smart contracts for transparent on-chain asset basket vaults on the Stellar network.
 
 ## Key Features
 
-- **Typed Contract Clients**: High-level abstractions for interacting with Spectra vaults with full type safety.
+- **Typed Contract Clients**: High-level abstractions for interacting with Spectral Verse vaults with full type safety.
 - **Advanced Transaction Builders**: Streamlined utilities for preparing complex vault operations including deposits, withdrawals, and rebalances.
 - **Robust Data Parsers**: Reliable conversion of raw contract values and ledger events into structured, developer-friendly models.
 - **Integrated Validation**: Built-in logic for verifying addresses, asset allocations, and operational parameters before execution.
@@ -44,9 +44,22 @@ const position = await client.getUserPosition(vaultId, userAddress);
 
 ## Security
 
-Spectra SDK is open-source and follows security best practices. However, it has not been formally audited.
+Spectral SDK is open-source and follows security best practices. However, it has not been formally audited.
 
 **Warning**: Do not rely on the SDK alone for high-value transactions without independent review. See [SECURITY.md](SECURITY.md) for more details.
+
+## Funding and Drips
+
+This repository is intended to be eligible for [Drips](https://www.drips.network/) funding and participation in [Drips Wave](https://docs.drips.network/wave/) contribution cycles. 
+
+### Maintainer Action Required
+To fully enable Drips funding and repository claiming, maintainers must:
+1. Claim the repository on [Drips App](https://www.drips.network/app)
+2. Configure funding splits (if applicable)
+3. Consider adding a `FUNDING.json` file with approved ownership details (no placeholder addresses should be used)
+4. Review and apply appropriate labels (see `.github/ISSUE_TEMPLATE/` for label suggestions)
+
+For more information, see [docs/drips-readiness.md](docs/drips-readiness.md).
 
 ## License
 

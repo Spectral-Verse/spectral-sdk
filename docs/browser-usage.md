@@ -1,6 +1,6 @@
 # Browser Usage
 
-Spectra SDK is compatible with modern browsers.
+Spectral SDK is compatible with modern browsers.
 
 ## Bundling
 

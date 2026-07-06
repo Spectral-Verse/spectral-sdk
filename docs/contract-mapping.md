@@ -1,6 +1,6 @@
 # Contract Mapping
 
-This document maps Spectra SDK methods to the underlying Spectra contract functions.
+This document maps Spectral SDK methods to the underlying Spectral Verse contract functions.
 
 | SDK Method | Contract Function | Notes |
 | :--- | :--- | :--- |

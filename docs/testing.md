@@ -1,6 +1,6 @@
 # Testing
 
-Spectra SDK uses Vitest for unit and mock testing.
+Spectral SDK uses Vitest for unit and mock testing.
 
 ## Running Tests
 

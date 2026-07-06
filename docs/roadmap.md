@@ -1,8 +1,8 @@
 # Roadmap
 
-The Spectra SDK is a foundational tool for the Spectra ecosystem. Future improvements include:
+The Spectral SDK is a foundational tool for the Spectral Verse ecosystem. Future improvements include:
 
-- **Generated Contract Bindings**: Automatically generate the `ContractClient` from the Spectra contract WASM or IDL for better type safety.
+- **Generated Contract Bindings**: Automatically generate the `ContractClient` from the Spectral Verse contract WASM or IDL for better type safety.
 - **Live Event Indexing Helpers**: Utilities for subscribing to and processing contract events in real-time.
 - **React Hooks Package**: A set of hooks for easy integration with React applications (e.g., `useVault`, `usePosition`).
 - **Richer Wallet Adapters**: Built-in support for popular Stellar wallets to simplify the signing flow.
