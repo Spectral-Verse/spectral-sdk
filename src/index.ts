@@ -1,5 +1,5 @@
 // Clients
-export * from './client/SpectraClient';
+export * from './client/SpectralClient';
 export * from './client/ContractClient';
 export * from './client/RpcProvider';
 export * from './client/TransactionBuilder';
@@ -9,7 +9,7 @@ export * from './config/networks';
 export * from './config/defaults';
 
 // Errors
-export * from './errors/SpectraError';
+export * from './errors/SpectralError';
 export * from './errors/errorCodes';
 
 // Models
@@ -32,6 +32,13 @@ export * from './utils/amount';
 export * from './utils/hash';
 export * from './utils/result';
 export * from './utils/time';
+
+// Validation
+export * from './validation/allocation';
+export * from './validation/asset';
+export * from './validation/deposit';
+export * from './validation/vault';
+export * from './validation/withdrawal';
 
 // Mocks
 export * from './mocks/MockSpectralClient';

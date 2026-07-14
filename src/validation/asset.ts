@@ -1,9 +1,12 @@
 import { isValidAddress, isValidContractId } from '../utils/address';
-import { SpectraError } from '../errors/SpectraError';
-import { SpectraErrorCode } from '../errors/errorCodes';
+import { SpectralError } from '../errors/SpectralError';
+import { SpectralErrorCode } from '../errors/errorCodes';
 
 export function validateAsset(asset: string): void {
   if (!isValidAddress(asset) && !isValidContractId(asset)) {
-    throw new SpectraError(SpectraErrorCode.INVALID_ADDRESS, `Invalid asset identifier: ${asset}`);
+    throw new SpectralError(
+      SpectralErrorCode.INVALID_ADDRESS,
+      `Invalid asset identifier: ${asset}`
+    );
   }
 }

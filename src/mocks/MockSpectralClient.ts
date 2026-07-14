@@ -8,7 +8,7 @@ export class MockSpectralClient extends SpectralClient {
     super({
       rpcUrl: 'http://localhost:8000',
       networkPassphrase: 'Test SDF Network ; September 2015',
-      contractId: 'C'.repeat(56),
+      contractId: 'CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4',
       ...config,
     });
   }
@@ -20,7 +20,10 @@ export class MockSpectralClient extends SpectralClient {
     throw new Error('Vault not found in mocks');
   }
 
-  public override async getUserPosition(vaultId: string, userAddress: string): Promise<UserPosition> {
+  public override async getUserPosition(
+    vaultId: string,
+    userAddress: string
+  ): Promise<UserPosition> {
     if (vaultId === mockPosition.vaultId && userAddress === mockPosition.userAddress) {
       return mockPosition;
     }

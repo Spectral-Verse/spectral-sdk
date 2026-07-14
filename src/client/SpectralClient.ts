@@ -43,7 +43,7 @@ export class SpectralClient {
 
   /**
    * Fetches the current state of a specific vault.
-   * 
+   *
    * @param vaultId - The 32-byte unique identifier of the vault.
    * @returns A promise resolving to the complete Vault state.
    * @throws {SpectralError} If the vault is not found or ID is invalid.
@@ -67,7 +67,7 @@ export class SpectralClient {
 
   /**
    * Retrieves the share position for a specific user in a vault.
-   * 
+   *
    * @param vaultId - The ID of the vault.
    * @param userAddress - The Stellar public key of the user.
    * @returns A promise resolving to the UserPosition details.
@@ -88,12 +88,12 @@ export class SpectralClient {
 
   /**
    * Prepares an unsigned transaction for depositing a supported asset into a vault.
-   * 
+   *
    * This method performs several client-side validations:
    * 1. Validates the `vaultId` format.
    * 2. Checks if the user address is valid.
    * 3. Ensures the amount is greater than zero.
-   * 
+   *
    * The returned transaction must be signed by the user's wallet before submission.
    *
    * @param vaultId - The 32-byte hexadecimal ID of the target vault.
@@ -110,14 +110,19 @@ export class SpectralClient {
     amount: bigint
   ): Promise<Transaction> {
     validateVaultId(vaultId);
-    const operation = this.contract.prepareInvoke('deposit', [vaultId, userAddress, assetAddress, amount]);
+    const operation = this.contract.prepareInvoke('deposit', [
+      vaultId,
+      userAddress,
+      assetAddress,
+      amount,
+    ]);
     return this.txBuilder.build(userAddress, operation);
   }
 
   /**
    * Prepares a transaction to redeem vault shares for the underlying asset basket.
-   * 
-   * When a user withdraws, they receive a proportional amount of every asset held 
+   *
+   * When a user withdraws, they receive a proportional amount of every asset held
    * by the vault. The shares are burned in the process.
    *
    * @param vaultId - The ID of the vault to withdraw from.
@@ -137,7 +142,7 @@ export class SpectralClient {
 
   /**
    * Prepares a transaction to update the vault's asset allocation weights.
-   * 
+   *
    * Only the designated `rebalance_authority` for the vault can execute this.
    * The new allocations must sum up to exactly 10,000 basis points.
    *
@@ -159,7 +164,7 @@ export class SpectralClient {
 
   /**
    * Prepares a transaction for the manager to claim accumulated fees.
-   * 
+   *
    * Fees accrued from deposits across all assets in the basket are transferred
    * to the manager's address.
    *
@@ -178,7 +183,7 @@ export class SpectralClient {
 
   /**
    * Updates the operational status (Active/Paused) of a vault.
-   * 
+   *
    * @param vaultId - The ID of the vault.
    * @param managerAddress - The address of the vault manager.
    * @param depositStatus - The new status for deposits.
@@ -192,7 +197,11 @@ export class SpectralClient {
     withdrawalStatus: VaultStatus
   ): Promise<Transaction> {
     validateVaultId(vaultId);
-    const operation = this.contract.prepareInvoke('set_status', [vaultId, depositStatus, withdrawalStatus]);
+    const operation = this.contract.prepareInvoke('set_status', [
+      vaultId,
+      depositStatus,
+      withdrawalStatus,
+    ]);
     return this.txBuilder.build(managerAddress, operation);
   }
 }

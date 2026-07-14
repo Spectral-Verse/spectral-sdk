@@ -1,4 +1,10 @@
-import { TransactionBuilder as StellarTransactionBuilder, Account, xdr, BASE_FEE, Transaction } from '@stellar/stellar-sdk';
+import {
+  TransactionBuilder as StellarTransactionBuilder,
+  Account,
+  xdr,
+  BASE_FEE,
+  Transaction,
+} from '@stellar/stellar-sdk';
 import { RpcProvider } from './RpcProvider';
 
 /**
@@ -18,7 +24,7 @@ export class TransactionBuilder {
 
   /**
    * Assembles a Stellar transaction for a given contract operation.
-   * 
+   *
    * @param sourceAddress - The Stellar address of the transaction source account.
    * @param operation - The XDR operation (e.g., contract invocation) to include.
    * @returns A promise resolving to the built Transaction object.
@@ -26,7 +32,7 @@ export class TransactionBuilder {
   public async build(sourceAddress: string, operation: xdr.Operation): Promise<Transaction> {
     // Fetch the latest account sequence from the network
     const accountResponse = await this.provider.getAccount(sourceAddress);
-    const account = new Account(sourceAddress, accountResponse.sequence);
+    const account = new Account(sourceAddress, accountResponse.sequenceNumber());
 
     // Build the transaction with default conservative settings
     const tx = new StellarTransactionBuilder(account, {
