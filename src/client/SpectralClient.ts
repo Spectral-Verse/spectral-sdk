@@ -1,3 +1,4 @@
+import { Transaction } from '@stellar/stellar-sdk';
 import { RpcProvider } from './RpcProvider';
 import { ContractClient } from './ContractClient';
 import { TransactionBuilder } from './TransactionBuilder';
@@ -107,14 +108,10 @@ export class SpectralClient {
     userAddress: string,
     assetAddress: string,
     amount: bigint
-  ): Promise<any> {
+  ): Promise<Transaction> {
     validateVaultId(vaultId);
-    // Logic to build the transaction using this.txBuilder and this.contract.invokeArgs
-    return this.txBuilder.buildVaultCall(
-      userAddress,
-      'deposit',
-      [vaultId, userAddress, assetAddress, amount]
-    );
+    const operation = this.contract.prepareInvoke('deposit', [vaultId, userAddress, assetAddress, amount]);
+    return this.txBuilder.build(userAddress, operation);
   }
 
   /**
@@ -132,13 +129,10 @@ export class SpectralClient {
     vaultId: string,
     userAddress: string,
     sharesToBurn: bigint
-  ): Promise<any> {
+  ): Promise<Transaction> {
     validateVaultId(vaultId);
-    return this.txBuilder.buildVaultCall(
-      userAddress,
-      'withdraw',
-      [vaultId, userAddress, sharesToBurn]
-    );
+    const operation = this.contract.prepareInvoke('withdraw', [vaultId, userAddress, sharesToBurn]);
+    return this.txBuilder.build(userAddress, operation);
   }
 
   /**
@@ -156,14 +150,11 @@ export class SpectralClient {
     vaultId: string,
     managerAddress: string,
     newAllocations: AssetAllocation[]
-  ): Promise<any> {
+  ): Promise<Transaction> {
     validateVaultId(vaultId);
     validateAllocations(newAllocations);
-    return this.txBuilder.buildVaultCall(
-      managerAddress,
-      'update_allocations',
-      [vaultId, newAllocations]
-    );
+    const operation = this.contract.prepareInvoke('update_allocations', [vaultId, newAllocations]);
+    return this.txBuilder.build(managerAddress, operation);
   }
 
   /**
@@ -179,13 +170,10 @@ export class SpectralClient {
   public async buildClaimFeesTransaction(
     vaultId: string,
     managerAddress: string
-  ): Promise<any> {
+  ): Promise<Transaction> {
     validateVaultId(vaultId);
-    return this.txBuilder.buildVaultCall(
-      managerAddress,
-      'claim_fees',
-      [vaultId]
-    );
+    const operation = this.contract.prepareInvoke('claim_fees', [vaultId]);
+    return this.txBuilder.build(managerAddress, operation);
   }
 
   /**
@@ -202,12 +190,9 @@ export class SpectralClient {
     managerAddress: string,
     depositStatus: VaultStatus,
     withdrawalStatus: VaultStatus
-  ): Promise<any> {
+  ): Promise<Transaction> {
     validateVaultId(vaultId);
-    return this.txBuilder.buildVaultCall(
-      managerAddress,
-      'set_status',
-      [vaultId, depositStatus, withdrawalStatus]
-    );
+    const operation = this.contract.prepareInvoke('set_status', [vaultId, depositStatus, withdrawalStatus]);
+    return this.txBuilder.build(managerAddress, operation);
   }
 }
