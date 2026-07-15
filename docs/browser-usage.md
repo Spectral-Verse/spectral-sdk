@@ -11,7 +11,7 @@ The SDK is published as an ESM module. If you are using a bundler like Vite, Web
 Since the SDK does not handle private keys, you must integrate with a browser wallet (e.g., Freighter, Albedo) to sign transactions.
 
 ```typescript
-import { SpectralClient } from '@spectra/sdk';
+import { SpectralClient } from '@spectral/sdk';
 
 const client = new SpectralClient({ ... });
 

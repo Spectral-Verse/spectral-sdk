@@ -13,13 +13,13 @@ Spectral SDK is a comprehensive TypeScript library designed for seamless integra
 ## Installation
 
 ```bash
-npm install @spectra/sdk
+npm install @spectral/sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { SpectralClient, NetworkNames } from '@spectra/sdk';
+import { SpectralClient, NetworkNames } from '@spectral/sdk';
 
 const client = new SpectralClient({
   rpcUrl: 'https://soroban-testnet.stellar.org',
@@ -47,7 +47,6 @@ const position = await client.getUserPosition(vaultId, userAddress);
 Spectral SDK is open-source and follows security best practices. However, it has not been formally audited.
 
 **Warning**: Do not rely on the SDK alone for high-value transactions without independent review. See [SECURITY.md](SECURITY.md) for more details.
-
 
 ## License
 

@@ -1,6 +1,6 @@
-import { SpectraClient, NetworkNames } from '../src';
+import { SpectralClient, NetworkNames } from '../src';
 
-const client = new SpectraClient({
+const client = new SpectralClient({
   rpcUrl: process.env.RPC_URL || 'https://soroban-testnet.stellar.org',
   networkPassphrase: process.env.NETWORK_PASSPHRASE || NetworkNames.TESTNET,
   contractId: process.env.CONTRACT_ID || 'CA...',
@@ -12,9 +12,7 @@ async function main() {
   const baseAsset = 'CC...';
   const rebalanceAuth = 'GB...';
 
-  const allocations = [
-    { asset: baseAsset, targetBps: 10000 },
-  ];
+  const allocations = [{ asset: baseAsset, targetBps: 10000 }];
 
   // This would typically be called by a strategy creator
   // const tx = await client.buildCreateVaultTransaction(...);

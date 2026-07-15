@@ -1,6 +1,6 @@
-import { SorobanRpc, Transaction, Network, xdr, TransactionBuilder as StellarTransactionBuilder } from '@stellar/stellar-sdk';
-import { SpectraError } from '../errors/SpectraError';
-import { SpectraErrorCode } from '../errors/errorCodes';
+import { SorobanRpc, Transaction, xdr, Account } from '@stellar/stellar-sdk';
+import { SpectralError } from '../errors/SpectralError';
+import { SpectralErrorCode } from '../errors/errorCodes';
 
 /**
  * A wrapper around the Stellar Soroban RPC server providing high-level utility methods.
@@ -16,7 +16,7 @@ export class RpcProvider {
    * @param networkPassphrase - The network passphrase (e.g., for Testnet or Mainnet).
    */
   constructor(rpcUrl: string, networkPassphrase: string) {
-    this.server = new SorobanRpc.Server(rpcUrl);
+    this.server = new SorobanRpc.Server(rpcUrl, { allowHttp: rpcUrl.startsWith('http://') });
     this.networkPassphrase = networkPassphrase;
   }
 
@@ -24,13 +24,13 @@ export class RpcProvider {
    * Retrieves account information including sequence number.
    * @param address - The Stellar address to fetch.
    * @returns Soroban RPC account response.
-   * @throws {SpectraError} If the RPC request fails.
+   * @throws {SpectralError} If the RPC request fails.
    */
-  public async getAccount(address: string): Promise<SorobanRpc.Api.GetAccountResponse> {
+  public async getAccount(address: string): Promise<Account> {
     try {
       return await this.server.getAccount(address);
     } catch (err) {
-      throw SpectraError.fromRpcError(err);
+      throw SpectralError.fromRpcError(err);
     }
   }
 
@@ -39,11 +39,13 @@ export class RpcProvider {
    * @param tx - The transaction to simulate.
    * @returns Simulation result including resource estimates.
    */
-  public async simulateTransaction(tx: Transaction): Promise<SorobanRpc.Api.SimulateTransactionResponse> {
+  public async simulateTransaction(
+    tx: Transaction
+  ): Promise<SorobanRpc.Api.SimulateTransactionResponse> {
     try {
       return await this.server.simulateTransaction(tx);
     } catch (err) {
-      throw SpectraError.fromRpcError(err);
+      throw SpectralError.fromRpcError(err);
     }
   }
 
@@ -56,7 +58,7 @@ export class RpcProvider {
     try {
       return await this.server.sendTransaction(tx);
     } catch (err) {
-      throw SpectraError.fromRpcError(err);
+      throw SpectralError.fromRpcError(err);
     }
   }
 
@@ -69,7 +71,7 @@ export class RpcProvider {
     try {
       return await this.server.getTransaction(hash);
     } catch (err) {
-      throw SpectraError.fromRpcError(err);
+      throw SpectralError.fromRpcError(err);
     }
   }
 

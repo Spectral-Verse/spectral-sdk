@@ -5,7 +5,7 @@ describe('SpectralClient', () => {
   const config = {
     rpcUrl: 'https://soroban-testnet.stellar.org',
     networkPassphrase: NetworkNames.TESTNET,
-    contractId: 'C'.repeat(56),
+    contractId: 'CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4',
   };
 
   it('should initialize with correct configuration', () => {

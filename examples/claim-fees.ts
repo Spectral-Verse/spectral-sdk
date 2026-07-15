@@ -1,6 +1,6 @@
-import { SpectraClient } from '../src';
+import { SpectralClient } from '../src';
 
-const client = new SpectraClient({
+const client = new SpectralClient({
   rpcUrl: 'https://soroban-testnet.stellar.org',
   networkPassphrase: 'Test SDF Network ; September 2015',
   contractId: 'CA...',

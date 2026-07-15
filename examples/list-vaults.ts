@@ -1,7 +1,7 @@
-import { MockSpectraClient } from '../src';
+import { MockSpectralClient } from '../src';
 
 async function main() {
-  const client = new MockSpectraClient();
+  const client = new MockSpectralClient();
   const vaults = await client.listVaults();
 
   console.log('Available Vaults:');

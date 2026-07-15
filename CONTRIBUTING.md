@@ -5,10 +5,10 @@ We welcome contributions to Spectral Verse! Please follow these guidelines:
 ## How to Contribute
 
 ### Finding Issues to Work On
+
 - Browse the [issues](https://github.com/your-org/spectral-sdk/issues) page
 - Look for labels like `good first issue` or `help wanted` for beginner-friendly tasks
 - Comment on an issue to let others know you're working on it
-
 
 ## Local Setup
 
@@ -34,11 +34,13 @@ We welcome contributions to Spectral Verse! Please follow these guidelines:
 5. A maintainer will review your PR and provide feedback.
 
 ## Communication
+
 - Use issues for bug reports and feature requests
 - Use PR comments for discussion about specific changes
 - Be respectful and follow our [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Issue Guidelines
+
 - Check if the issue already exists before opening a new one
 - Provide clear steps to reproduce any bugs
 - For feature requests, explain the use case and proposed implementation

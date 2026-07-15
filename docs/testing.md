@@ -11,6 +11,7 @@ npm test
 ## Unit Tests
 
 Located in `tests/`, these tests cover:
+
 - Validation logic
 - Amount formatting and conversion
 - Event parsing
@@ -23,6 +24,7 @@ The `MockSpectralClient` allows testing application logic without a live RPC con
 ## Integration Testing
 
 To run integration tests against a live network:
+
 1. Copy `.env.example` to `.env`.
 2. Provide a valid `RPC_URL`, `NETWORK_PASSPHRASE`, and `CONTRACT_ID`.
 3. Run `npm run test:integration` (if implemented).

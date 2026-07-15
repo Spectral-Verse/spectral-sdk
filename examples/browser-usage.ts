@@ -1,8 +1,8 @@
-import { SpectraClient, NetworkNames } from '@spectra/sdk';
+import { SpectralClient, NetworkNames } from '@spectral/sdk';
 
 // This example demonstrates how to use the SDK in a browser context with Freighter
 async function depositWithFreighter() {
-  const client = new SpectraClient({
+  const client = new SpectralClient({
     rpcUrl: 'https://soroban-testnet.stellar.org',
     networkPassphrase: NetworkNames.TESTNET,
     contractId: 'CA...',
